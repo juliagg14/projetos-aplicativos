@@ -1,0 +1,36 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color purple_200
+color purple_500
+color purple_700
+color teal_200
+color teal_700
+color white
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+id Botao0
+id Botao1
+id Botao2
+id Botao3
+id Botao4
+id Botao5
+id Botao6
+id Botao7
+id Botao8
+id Botao9
+id BotaoClear
+id BotaoDivisao
+id BotaoIgual
+id BotaoMais
+id BotaoMenos
+id BotaoX
+id Calculadora
+id DigiteOsNumeros
+layout activity_main
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+style Theme.CalculadoraSimples
+xml backup_rules
+xml data_extraction_rules

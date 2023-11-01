@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="#B35353"
     tools:context="views.MainActivity">
 
     <TextView
@@ -181,8 +182,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="       Adicionar Tarefa:"
         android:inputType="textPersonName"
-        android:text="Adicionar Tarefa"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -204,5 +205,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.317"
         tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/Finalizar"
+        android:layout_width="43dp"
+        android:layout_height="43dp"
+        android:backgroundTint="#6C64AF"
+        android:text="X"
+        app:cornerRadius="2000dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.956"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

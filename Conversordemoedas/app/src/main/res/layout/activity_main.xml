@@ -9,28 +9,27 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="175dp"
-        android:layout_height="28dp"
-        android:background="#67DDB9"
+        android:layout_width="223dp"
+        android:layout_height="57dp"
         android:fontFamily="@font/contrail_one"
         android:text="Conversor de moedas"
-        android:textColor="#09011E"
-        android:textSize="20dp"
+        android:textColor="#67DDB9"
+        android:textSize="25dp"
         app:circularflow_radiusInDP="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.113" />
+        app:layout_constraintVertical_bias="0.121" />
 
     <Button
         android:id="@+id/BtnConverter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
         android:backgroundTint="#67DDB9"
         android:text="converter"
         android:textColor="#09011E"
-        app:layout_constraintBottom_toTopOf="@+id/Resultado"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Digite" />
@@ -39,29 +38,45 @@
         android:id="@+id/Digite"
         android:layout_width="114dp"
         android:layout_height="42dp"
-        android:backgroundTint="#F8F8F8"
+        android:backgroundTint="#FFF"
         android:ems="10"
-        android:hint="        0,00"
+        android:gravity="center"
+        android:hint="0,00"
         android:inputType="numberDecimal"
         android:textColor="#C9F4F0F0"
         android:textColorHint="#837F7F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.332" />
+        app:layout_constraintVertical_bias="0.312" />
 
     <EditText
         android:id="@+id/Resultado"
         android:layout_width="69dp"
         android:layout_height="45dp"
-        android:backgroundTint="#6FF3F1F1"
+        android:backgroundTint="#FFF"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.75" />
+        app:layout_constraintVertical_bias="0.73" />
+
+    <Button
+        android:id="@+id/BtnClear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#67DDB9"
+        android:text="Clear"
+        android:textColor="#09011E"
+        app:layout_constraintBottom_toTopOf="@+id/Resultado"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BtnConverter"
+        app:layout_constraintVertical_bias="0.315" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
