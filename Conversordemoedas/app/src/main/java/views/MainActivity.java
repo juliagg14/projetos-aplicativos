@@ -9,9 +9,12 @@ import android.widget.EditText;
 
 import com.example.conversordemoedas.R;
 
+import controller.Conversorcontroller;
 import model.Conversor;
 
 public class MainActivity extends AppCompatActivity {
+
+    Conversorcontroller controller;
 
     Conversor converter;
 
@@ -25,8 +28,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        controller = new Conversorcontroller(MainActivity.this);
+        controller.toString();
+
         converter = new Conversor();
-        converter.setDigite("22,33");
+
+        controller.buscar(converter);
 
         Digite = findViewById(R.id.Digite);
         BtnClear = findViewById(R.id.BtnClear);
@@ -34,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         Digite.setText(converter.getDigite());
 
         BtnClear.setOnClickListener(view -> Digite.setText(""));
+        controller.Clear();
 
 
     }

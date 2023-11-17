@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.myapplication'
+    namespace 'devandroidjulia.appjogodaforca'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.example.myapplication"
+        applicationId "devandroidjulia.appjogodaforca"
         minSdk 27
         targetSdk 33
         versionCode 1
