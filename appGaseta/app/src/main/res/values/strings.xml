@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">App GasEta</string>
+    <string name="txt_hint_edit_Primeironome">Gasolina</string>
+    <string name="txt_hint_edit_Sobrenome">Etanol</string>
+    <string name="txt_button_limpar">LIMPAR</string>
+    <string name="txt_button_salvar">SALVAR</string>
+    <string name="txt_button_finalizar">Calcular</string>
+    <string name="lista_alunos_tds_025">Resultados</string>
+</resources>
