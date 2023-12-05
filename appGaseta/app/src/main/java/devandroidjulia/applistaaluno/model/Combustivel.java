@@ -3,8 +3,17 @@ package devandroidjulia.applistaaluno.model;
 public class Combustivel {
 
     private String NomeCombustivel;
-    private Double PrecoCombustivel;
+    private double PrecoCombustivel;
     private String Recomendacao;
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNomeCombustivel() {
         return NomeCombustivel;
@@ -18,9 +27,8 @@ public class Combustivel {
         return PrecoCombustivel;
     }
 
-
-    public void setPrecoCombustivel(Double precoCombustivel) {
-        this.PrecoCombustivel = precoCombustivel;
+    public void setPrecoCombustivel(double precoCombustivel) {
+       this.PrecoCombustivel = precoCombustivel;
     }
 
     public String getRecomendacao() {
@@ -30,5 +38,6 @@ public class Combustivel {
     public void setRecomendacao(String recomendacao) {
         this.Recomendacao = recomendacao;
     }
+
 }
 

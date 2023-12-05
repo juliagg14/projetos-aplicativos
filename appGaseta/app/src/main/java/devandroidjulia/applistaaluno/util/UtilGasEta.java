@@ -1,4 +1,4 @@
-package util;
+package devandroidjulia.applistaaluno.util;
 
 public class UtilGasEta {
 

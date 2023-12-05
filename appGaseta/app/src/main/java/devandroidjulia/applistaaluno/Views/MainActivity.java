@@ -12,17 +12,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 import devandroidjulia.applistaaluno.R;
 import devandroidjulia.applistaaluno.controller.CombustivelController;
 import devandroidjulia.applistaaluno.controller.PostoController;
 import devandroidjulia.applistaaluno.model.Combustivel;
 import devandroidjulia.applistaaluno.model.Posto;
-import util.UtilGasEta;
+import  devandroidjulia.applistaaluno.util.UtilGasEta;
 
 public class MainActivity extends AppCompatActivity {
 
 
-
+    List<Combustivel> data;
 
     CombustivelController controller;
     Combustivel combustivelGasolina;
@@ -57,8 +59,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         controller = new CombustivelController(MainActivity.this);
+       data = controller.getDataList();
+
+
         controller.toString();
-        combustivel = new Combustivel();
 
 
 

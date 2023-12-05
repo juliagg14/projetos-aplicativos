@@ -84,7 +84,7 @@
         android:layout_height="43dp"
         android:backgroundTint="#6C64AF"
         android:text="X"
-        app:cornerRadius="2000dp"
+        🏚
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.956"

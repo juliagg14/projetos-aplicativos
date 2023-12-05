@@ -6,7 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import DataBase.GasEtaDB;
+
+import devandroidjulia.applistaaluno.DataBase.GasEtaDB;
 import devandroidjulia.applistaaluno.R;
 
 public class SplashActivity extends AppCompatActivity {
