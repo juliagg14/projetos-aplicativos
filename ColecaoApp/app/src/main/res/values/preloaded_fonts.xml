@@ -3,5 +3,8 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/bebas_neue</item>
         <item>@font/chau_philomene_one</item>
+        <item>@font/creepster</item>
+        <item>@font/oi</item>
+        <item>@font/sedgwick_ave_display</item>
     </array>
 </resources>

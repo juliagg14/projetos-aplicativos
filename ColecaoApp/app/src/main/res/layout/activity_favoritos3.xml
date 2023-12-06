@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="#000000"
     tools:context=".Views.MainActivity">
 
     <ScrollView
@@ -19,11 +20,13 @@
                 android:id="@+id/button4"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                app:cornerRadius="2000dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="15dp"
+                android:backgroundTint="#000000"
                 android:text="❮"
-                android:textSize="24dp"></Button>
+                android:textColor="#00BCD4"
+                android:textSize="24dp"
+                app:cornerRadius="2000dp"></Button>
 
 
             <ImageView
@@ -31,6 +34,7 @@
                 android:layout_width="214dp"
                 android:layout_height="162dp"
                 android:layout_gravity="center"
+                android:foregroundTint="#2B1111"
                 app:srcCompat="@drawable/_ba02e72_e3ed_480f_9519_8ec9a8fc2707"
                 tools:layout_editor_absoluteX="98dp"
                 tools:layout_editor_absoluteY="54dp" />
@@ -39,41 +43,45 @@
                 android:id="@+id/ratingBar"
                 android:layout_width="247dp"
                 android:layout_height="51dp"
+                android:layout_gravity="center"
+                android:progressTint="#00BCD4"
                 tools:layout_editor_absoluteX="82dp"
-                tools:layout_editor_absoluteY="216dp"
-                android:layout_gravity="center"/>
+                tools:layout_editor_absoluteY="216dp" />
 
             <Button
                 android:id="@+id/button"
                 android:layout_width="380dp"
                 android:layout_height="wrap_content"
-                android:text="Adicionar"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:backgroundTint="#000000"
+                android:text="Remover"
+                android:textColor="#00BCD4" />
 
 
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="200dp"
                 android:layout_height="130dp"
-                app:srcCompat="@drawable/image_fed56f67_b255_4114_8a24_3a72316ff433"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/image_fed56f67_b255_4114_8a24_3a72316ff433" />
 
             <RatingBar
                 android:id="@+id/ratingBar3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:progressTint="#00BCD4"
                 tools:layout_editor_absoluteX="85dp"
-                tools:layout_editor_absoluteY="457dp"
-                android:layout_gravity="center"/>
+                tools:layout_editor_absoluteY="457dp" />
 
             <Button
                 android:id="@+id/button3"
                 android:layout_width="380dp"
                 android:layout_height="wrap_content"
-                android:text="Adicionar"
-                android:layout_gravity="center"/>
-
-
+                android:layout_gravity="center"
+                android:backgroundTint="#000000"
+                android:text="Remover"
+                android:textColor="#00BCD4" />
 
 
         </LinearLayout>
