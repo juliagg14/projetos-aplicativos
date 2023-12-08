@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
+        <item>@font/aguafina_script</item>
         <item>@font/bebas_neue</item>
+        <item>@font/bigelow_rules</item>
         <item>@font/chau_philomene_one</item>
         <item>@font/creepster</item>
+        <item>@font/lobster_two</item>
         <item>@font/oi</item>
         <item>@font/sedgwick_ave_display</item>
     </array>
