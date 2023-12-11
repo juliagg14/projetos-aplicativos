@@ -57,6 +57,22 @@ public class CollectionDB extends SQLiteOpenHelper {
 
             getWritableDatabase().delete("collection", whereClause, data);
         }
+
+
+    }
+
+    public void updateMusic(Music music) {
+        ContentValues values = new ContentValues();
+
+        values.put("nameMusic", music.getMusic());
+        values.put("nameGenre", music.getGenere());
+
+
+        String whereClause = "id = ?";
+        String[] data = {String.valueOf(music.getId())};
+
+        db.update("collection", values, whereClause, data);
+
     }
 
     public List<Music> dataList() {
@@ -76,6 +92,7 @@ public class CollectionDB extends SQLiteOpenHelper {
                 register.setId(cursor.getInt(0));
                 register.setMusic(cursor.getString(1));
                 register.setGenere(cursor.getString(2));
+                list.add(register);
             } while (cursor.moveToNext());
 
         } else {

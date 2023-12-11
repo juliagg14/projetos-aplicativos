@@ -7,6 +7,7 @@ import com.example.colecaoapp.Model.Music;
 import com.example.colecaoapp.Views.FavoritosActivity;
 import com.example.colecaoapp.Views.MainActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MusicController extends CollectionDB {
@@ -14,10 +15,11 @@ public class MusicController extends CollectionDB {
         super(mainActivity);
     }
 
-    public MusicController (FavoritosActivity favoritosActivity){
+    public MusicController(FavoritosActivity favoritosActivity) {
         super(favoritosActivity);
     }
-    public void AddMusic (Music music){
+
+    public void AddMusic(Music music) {
         ContentValues data = new ContentValues();
 
         data.put("nameMusic", music.getMusic());
@@ -32,7 +34,12 @@ public class MusicController extends CollectionDB {
         return dataList();
 
     }
+
     public void excluirMusic(int musicId) {
         delMusic(musicId);
     }
+
+    public void atualizarMusic(Music music){updateMusic(music);}
+
+
 }

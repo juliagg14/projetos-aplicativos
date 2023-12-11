@@ -7,8 +7,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -25,6 +29,7 @@ public class FavoritosActivity extends AppCompatActivity {
 
     List<Music> listMusic;
     TableLayout idTable;
+    Spinner spinner;
 
     Music music;
 
@@ -39,6 +44,7 @@ public class FavoritosActivity extends AppCompatActivity {
         music = new Music();
 
 
+        spinner = findViewById(R.id.Spinner);
         idTable = findViewById(R.id.MusicList);
 
 
@@ -48,28 +54,55 @@ public class FavoritosActivity extends AppCompatActivity {
 
             TableRow tableRow = new TableRow(this);
 
-            TextView textView = new TextView(this);
-            textView.setText(music.getMusic());
-            textView.setTextSize(18);
-            textView.setBackgroundResource(R.drawable.border);
+            TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(
+                    0,
+                    TableRow.LayoutParams.MATCH_PARENT,
+                    50f
+            );
+
+            layoutParams.setMargins(10, 10, 0, 0);
+            EditText editText = new EditText(this);
+            editText.setText(music.getMusic());
+            editText.setTextSize(18);
+            editText.setBackgroundResource(R.drawable.border);
+            editText.setGravity(Gravity.CENTER);
+            editText.setLayoutParams(layoutParams);
+
+            TableRow.LayoutParams buttonLayoutParams = new TableRow.LayoutParams(
+                    0,
+                    TableRow.LayoutParams.WRAP_CONTENT,
+                    20f
+            );
+
+            buttonLayoutParams.setMargins(2, 0, 0, 0);
+
 
             Button BtnDel = new Button(this);
             BtnDel.setText("X");
             BtnDel.setTextSize(18);
             BtnDel.setTextColor(Color.parseColor("#CCCCCC"));
             BtnDel.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#AA0C00")));
-
-            Button BtnDetail = new Button(this);
-            BtnDetail.setText("+");
-            BtnDetail.setTextSize(18);
-            BtnDetail.setTextColor(Color.parseColor("CCCCCC"));
+            BtnDel.setLayoutParams(buttonLayoutParams);
+            buttonLayoutParams.setMargins(4, 0, 0, 0);
 
 
-            tableRow.addView(textView);
+
+
+            Button BtnEdit = new Button(this);
+            BtnEdit.setText("+");
+            BtnEdit.setTextSize(18);
+            BtnEdit.setTextColor(Color.parseColor("#CCCCCC"));
+            BtnEdit.setLayoutParams(buttonLayoutParams);
+
+            buttonLayoutParams.setMargins(2, 0, 0, 0);
+
+
+            tableRow.addView(editText);
             tableRow.addView(BtnDel);
-            tableRow.addView(BtnDetail);
+            tableRow.addView(BtnEdit);
 
-            idTable.addView(tableRow);
+            BtnDel.setTag(music.getId());
+            BtnEdit.setTag(music.getId());
 
 
             BtnDel.setOnClickListener(new View.OnClickListener() {
@@ -83,14 +116,23 @@ public class FavoritosActivity extends AppCompatActivity {
                 }
             });
 
+           // BtnDetail.setOnClickListener(new View.OnClickListener() {
+                //@Override
+               // public void onClick(View view) {
+                    //int cardId = (int) view.getTag();
+
+                    //Music selectedMusic = musicControl.get
+
+                    //idName.setText(selectedCard.getName());
+                   // idType.setText(selectedCard.getType());
+                    //idColor.setText(selectedCard.getColor());
+                  //  idRarity.setText(selectedCard.getRarity());
+
+                    }
+            }//);
+
 
 
 
 
         }
-
-    }
-
-
-
-}
