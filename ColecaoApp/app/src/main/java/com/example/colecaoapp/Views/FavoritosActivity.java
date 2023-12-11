@@ -5,6 +5,7 @@ import static android.graphics.Color.parseColor;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.res.ColorStateList;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -21,12 +22,16 @@ import com.example.colecaoapp.Controller.MusicController;
 import com.example.colecaoapp.Model.Music;
 import com.example.colecaoapp.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FavoritosActivity extends AppCompatActivity {
 
     private MusicController musicControl;
 
+
+
+    List<String> GenereList;
     List<Music> listMusic;
     TableLayout idTable;
     Spinner spinner;
@@ -47,8 +52,11 @@ public class FavoritosActivity extends AppCompatActivity {
         spinner = findViewById(R.id.Spinner);
         idTable = findViewById(R.id.MusicList);
 
+        GenereList = musicControl.getDataGenre();
 
-
+       ArrayAdapter<String>adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, GenereList);
+       adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+       spinner.setAdapter(adapter);
 
         for (Music music : listMusic){
 
@@ -57,16 +65,14 @@ public class FavoritosActivity extends AppCompatActivity {
             TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(
                     0,
                     TableRow.LayoutParams.MATCH_PARENT,
-                    50f
+                    30f
             );
-
-            layoutParams.setMargins(10, 10, 0, 0);
+            layoutParams.setMargins(10, 10, 0, 10);
             EditText editText = new EditText(this);
             editText.setText(music.getMusic());
             editText.setTextSize(18);
             editText.setBackgroundResource(R.drawable.border);
             editText.setGravity(Gravity.CENTER);
-            editText.setLayoutParams(layoutParams);
 
             TableRow.LayoutParams buttonLayoutParams = new TableRow.LayoutParams(
                     0,
@@ -74,7 +80,7 @@ public class FavoritosActivity extends AppCompatActivity {
                     20f
             );
 
-            buttonLayoutParams.setMargins(2, 0, 0, 0);
+            buttonLayoutParams.setMargins(4, 0, 0, 0);
 
 
             Button BtnDel = new Button(this);
@@ -83,8 +89,7 @@ public class FavoritosActivity extends AppCompatActivity {
             BtnDel.setTextColor(Color.parseColor("#CCCCCC"));
             BtnDel.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#AA0C00")));
             BtnDel.setLayoutParams(buttonLayoutParams);
-            buttonLayoutParams.setMargins(4, 0, 0, 0);
-
+            buttonLayoutParams.setMargins(0, 0, 10, 0);
 
 
 
@@ -94,7 +99,7 @@ public class FavoritosActivity extends AppCompatActivity {
             BtnEdit.setTextColor(Color.parseColor("#CCCCCC"));
             BtnEdit.setLayoutParams(buttonLayoutParams);
 
-            buttonLayoutParams.setMargins(2, 0, 0, 0);
+            buttonLayoutParams.setMargins(0, 0, 200, 0);
 
 
             tableRow.addView(editText);
@@ -103,6 +108,8 @@ public class FavoritosActivity extends AppCompatActivity {
 
             BtnDel.setTag(music.getId());
             BtnEdit.setTag(music.getId());
+
+            idTable.addView(tableRow);
 
 
             BtnDel.setOnClickListener(new View.OnClickListener() {
@@ -116,23 +123,29 @@ public class FavoritosActivity extends AppCompatActivity {
                 }
             });
 
-           // BtnDetail.setOnClickListener(new View.OnClickListener() {
-                //@Override
-               // public void onClick(View view) {
-                    //int cardId = (int) view.getTag();
+            BtnEdit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
-                    //Music selectedMusic = musicControl.get
+                    int musicId = (int)view.getTag();
+                    String newText = editText.getText().toString();
 
-                    //idName.setText(selectedCard.getName());
-                   // idType.setText(selectedCard.getType());
-                    //idColor.setText(selectedCard.getColor());
-                  //  idRarity.setText(selectedCard.getRarity());
-
-                    }
-            }//);
+                    Music updateMusic = new Music();
 
 
+                    updateMusic.setId(musicId);
+                    updateMusic.setMusic(newText);
+
+                    musicControl.atualizarMusic(updateMusic);
+                }
+            });
 
 
 
-        }
+    }
+
+
+
+
+
+}}

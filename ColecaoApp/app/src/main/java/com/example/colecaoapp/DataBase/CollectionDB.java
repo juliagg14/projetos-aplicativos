@@ -20,7 +20,7 @@ public class CollectionDB extends SQLiteOpenHelper {
 
     SQLiteDatabase db;
 
-    public CollectionDB(Context context){
+    public CollectionDB(Context context) {
         super(context, DB_NAME, null, DB_Version);
 
         db = getWritableDatabase();
@@ -32,8 +32,8 @@ public class CollectionDB extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String sqlTable = "CREATE TABLE collection(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-        "nameMusic TEXT, " +
-        "nameGenre TEXT)";
+                "nameMusic TEXT, " +
+                "nameGenre TEXT)";
 
         db.execSQL(sqlTable);
     }
@@ -43,7 +43,7 @@ public class CollectionDB extends SQLiteOpenHelper {
 
     }
 
-    public void SaveMusic(String table, ContentValues data){
+    public void SaveMusic(String table, ContentValues data) {
 
         db.insert(table, null, data);
 
@@ -99,14 +99,18 @@ public class CollectionDB extends SQLiteOpenHelper {
         }
         return list;
     }
-    //public Music getMusicaById(int musicId){
-      //  Music music = new Music();
 
-       // String[] columns = {"id", "nameMusic", "genreMusic"};
-       // String selection = "id = ?";
-       // String[] selectionArgs = {String.valueOf(musicId)};
+    public List<String> dataGenre(){
+        List<String> listG = new ArrayList<>();
 
-       // Cursor cursor = db.query("collection", columns, selection, selectionArgs, null, null,null);
+        String querySql = "SELECT DISTINCT nameGenre FROM collection";
+        Cursor cursor = db.rawQuery(querySql, null);
+
+        if (cursor.moveToFirst())
+            do{
+                listG.add(cursor.getString(0));
+            }while (cursor.moveToNext());
+
+        return listG;
     }
-
-//}
+}

@@ -39,7 +39,13 @@ public class MusicController extends CollectionDB {
         delMusic(musicId);
     }
 
-    public void atualizarMusic(Music music){updateMusic(music);}
+    public void atualizarMusic(Music music){
+        updateMusic(music);
+    }
+
+    public List<String> getDataGenre(){
+        return dataGenre();
+    }
 
 
 }
