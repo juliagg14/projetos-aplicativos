@@ -44,7 +44,8 @@ public class MusicController extends CollectionDB {
     }
 
     public List<String> getDataGenre(){
-        return dataGenre();
+        List<String> genreList = dataGenre();
+        return genreList != null ? genreList : new ArrayList<>();
     }
 
 

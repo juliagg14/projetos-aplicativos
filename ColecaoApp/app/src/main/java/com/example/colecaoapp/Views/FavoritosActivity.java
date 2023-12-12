@@ -17,6 +17,7 @@ import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.colecaoapp.Controller.MusicController;
 import com.example.colecaoapp.Model.Music;
@@ -54,9 +55,24 @@ public class FavoritosActivity extends AppCompatActivity {
 
         GenereList = musicControl.getDataGenre();
 
-       ArrayAdapter<String>adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, GenereList);
-       adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-       spinner.setAdapter(adapter);
+
+
+        if(GenereList != null &&! GenereList.contains(null)) {
+
+            ArrayAdapter<String> adapter = new ArrayAdapter<>
+                    (this, android.R.layout.simple_spinner_item, GenereList);
+
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinner.setAdapter(adapter);
+
+
+
+        }else{
+
+            Toast.makeText(this,"Não foi possivel carregar a ista de gêneros.", Toast.LENGTH_SHORT).show();
+        }
+
+
 
         for (Music music : listMusic){
 
@@ -67,11 +83,13 @@ public class FavoritosActivity extends AppCompatActivity {
                     TableRow.LayoutParams.MATCH_PARENT,
                     30f
             );
-            layoutParams.setMargins(10, 10, 0, 10);
+            layoutParams.setMargins(10, 10, 5, 10);
+            layoutParams.width = 600;
             EditText editText = new EditText(this);
             editText.setText(music.getMusic());
             editText.setTextSize(18);
             editText.setBackgroundResource(R.drawable.border);
+            editText.setLayoutParams(layoutParams);
             editText.setGravity(Gravity.CENTER);
 
             TableRow.LayoutParams buttonLayoutParams = new TableRow.LayoutParams(
@@ -80,26 +98,28 @@ public class FavoritosActivity extends AppCompatActivity {
                     20f
             );
 
-            buttonLayoutParams.setMargins(4, 0, 0, 0);
+            buttonLayoutParams.setMargins(0, 0, 5, 0);
 
 
+            buttonLayoutParams.width = 150;
             Button BtnDel = new Button(this);
-            BtnDel.setText("X");
+            BtnDel.setText("\uD83D\uDDD1️");
             BtnDel.setTextSize(18);
-            BtnDel.setTextColor(Color.parseColor("#CCCCCC"));
-            BtnDel.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#AA0C00")));
+            BtnDel.setTextColor(Color.parseColor("#00BCD4"));
+            BtnDel.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#000000")));
             BtnDel.setLayoutParams(buttonLayoutParams);
-            buttonLayoutParams.setMargins(0, 0, 10, 0);
+
 
 
 
             Button BtnEdit = new Button(this);
-            BtnEdit.setText("+");
+            BtnEdit.setText("✏️");
             BtnEdit.setTextSize(18);
-            BtnEdit.setTextColor(Color.parseColor("#CCCCCC"));
+            BtnEdit.setTextColor(Color.parseColor("#00BCD4"));
+            BtnDel.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#000000")));
             BtnEdit.setLayoutParams(buttonLayoutParams);
 
-            buttonLayoutParams.setMargins(0, 0, 200, 0);
+
 
 
             tableRow.addView(editText);

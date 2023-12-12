@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.example.colecaoapp.Model.Music;
 
@@ -100,17 +101,20 @@ public class CollectionDB extends SQLiteOpenHelper {
         return list;
     }
 
-    public List<String> dataGenre(){
+    public List<String> dataGenre() {
         List<String> listG = new ArrayList<>();
 
         String querySql = "SELECT DISTINCT nameGenre FROM collection";
         Cursor cursor = db.rawQuery(querySql, null);
 
-        if (cursor.moveToFirst())
-            do{
+        if (cursor.moveToFirst()){
+            do {
                 listG.add(cursor.getString(0));
-            }while (cursor.moveToNext());
-
-        return listG;
+            } while (cursor.moveToNext());
+        }else{
+        Log.e("colectionDB", "Nenhum dado de gênero encontrado no banco de dados.");
     }
-}
+
+         return listG;
+
+}}
